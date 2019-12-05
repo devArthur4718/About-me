@@ -1,35 +1,44 @@
 package com.devarthur.aboutme
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.devarthur.aboutme.databinding.ActivityMainBinding
+
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.my_layout)
-        findViewById<Button>(R.id.done_button).setOnClickListener {
-            addNickname(it)
-        }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.doneButton.setOnClickListener {  addNickname(it) }
     }
 
     private fun addNickname(view: View) {
+
+
+        binding.apply {
+            nicknameEdit.text = binding.nicknameEdit.text
+            invalidateAll()
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameTextview.visibility = View.VISIBLE
+
+        }
 
         val edittext = findViewById<EditText>(R.id.nickname_edit)
         val nickNameTextView = findViewById<TextView>(R.id.nickname_textview)
         nickNameTextView.text = edittext.text
         edittext.visibility = View.GONE
-        view.visibility = View.GONE
         nickNameTextView.visibility = View.VISIBLE
-        hideKeyboard(view)
+
     }
 
     private fun hideKeyboard(view : View){
