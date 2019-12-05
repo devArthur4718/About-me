@@ -1,70 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="myName"
+            type="com.devarthur.aboutme.MyName" />
+
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <TextView
             style="@style/NameText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:textAlignment="center">
+            android:text="@={myName.name}"
+            android:textAlignment="center"
+            tools:layout_conversion_absoluteHeight="35dp"
+            tools:layout_editor_absoluteY="16dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_conversion_absoluteWidth="411dp">
 
         </TextView>
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/content_yellow_star"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            tools:layout_conversion_absoluteHeight="32dp"
+            tools:layout_editor_absoluteY="51dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_conversion_absoluteWidth="411dp" />
 
         <EditText
             android:id="@+id/nickname_edit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding"
-            android:layout_marginEnd="@dimen/padding"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            tools:layout_conversion_absoluteHeight="45dp"
+            tools:layout_editor_absoluteY="83dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_conversion_absoluteWidth="395dp" />
 
         <Button
             android:id="@+id/done_button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:text="@string/done">
+            android:text="@string/done"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_editor_absoluteY="144dp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_conversion_absoluteWidth="88dp">
 
         </Button>
 
         <TextView
             android:id="@+id/nickname_textview"
             style="@style/NameText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:textAlignment="center"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_conversion_absoluteWidth="0dp">
 
         </TextView>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
 
             <TextView
                 android:id="@+id/biotext"
                 style="@style/NameText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="1.2dp"
                 android:paddingHorizontal="16dp"
-                android:text="@string/lorem" />
-        </ScrollView>
+                android:text="@string/lorem"
+                tools:layout_conversion_absoluteHeight="1273dp"
+                tools:layout_editor_absoluteY="208dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_conversion_absoluteWidth="411dp" />
+
 
     </LinearLayout>
 </layout>
